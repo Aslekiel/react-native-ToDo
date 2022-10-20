@@ -56,6 +56,8 @@ const TodoItem = ({todo}) => {
       item.title = editedTodo;
     });
 
+    await AsyncStorage.setItem('todos', JSON.stringify(savedTodos));
+
     dispatch(editTodo({editedTodo, todo}));
 
     setEdit(false);
