@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   todoInput: {
     fontSize: 20,
-    height: 20,
+    height: 30,
     backgroundColor: 'rgba(0, 0, 0, 0.003)',
   },
 });
