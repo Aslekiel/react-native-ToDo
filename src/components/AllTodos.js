@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, Text, StyleSheet} from 'react-native';
 
 import {useSelector} from 'react-redux';
 
@@ -9,10 +9,10 @@ const AllTodos = () => {
   const {todos} = useSelector(state => state.todos);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.mainTitle}>All</Text>
       <TodosList todos={todos} />
-    </View>
+    </SafeAreaView>
   );
 };
 

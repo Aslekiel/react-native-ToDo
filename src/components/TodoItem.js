@@ -15,10 +15,15 @@ const checkboxMarked = 'checkbox-marked-circle-outline';
 const TodoItem = ({todo}) => {
   const [edit, setEdit] = useState(false);
   const [editedTodo, setEditedTodo] = useState(todo.title);
+  const [numberOfLines, setNumberOfLines] = useState(1);
   const dispatch = useDispatch();
 
   const editTodoHandler = value => {
     setEditedTodo(value.nativeEvent?.text);
+  };
+
+  const onPressTodo = () => {
+    numberOfLines ? setNumberOfLines(0) : setNumberOfLines(1);
   };
 
   const completeTodoHandler = async () => {
@@ -76,6 +81,7 @@ const TodoItem = ({todo}) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.todoTitleContainer}
+        onPress={onPressTodo}
         onLongPress={() => setEdit(!edit)}>
         {edit ? (
           <TextInput
@@ -85,7 +91,9 @@ const TodoItem = ({todo}) => {
             style={styles.todoInput}
           />
         ) : (
-          <Text style={styles.todoTitle}>{todo.title}</Text>
+          <Text numberOfLines={numberOfLines} style={styles.todoTitle}>
+            {todo.title}
+          </Text>
         )}
       </TouchableOpacity>
       <TouchableOpacity onPress={removeTodoHandler}>
@@ -120,12 +128,15 @@ const styles = StyleSheet.create({
   },
   todoTitle: {
     fontSize: 20,
+    color: 'black',
+    overflow: 'hidden',
   },
   buttonComplete: {
     paddingRight: 5,
   },
   todoInput: {
     fontSize: 20,
+    color: 'black',
     height: 30,
     backgroundColor: 'rgba(0, 0, 0, 0.003)',
   },

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text, TextInput} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, TextInput} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -53,7 +53,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.mainTitle}>todos</Text>
       <TextInput
         style={styles.mainInput}
@@ -62,7 +62,7 @@ const HomeScreen = () => {
         onSubmitEditing={onSubmit}
         placeholder="What needs to be done?"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   },
   mainInput: {
     fontSize: 20,
+    color: 'black',
     width: '90%',
     padding: 20,
     borderWidth: 2,

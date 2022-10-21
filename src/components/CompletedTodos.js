@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, Text, StyleSheet} from 'react-native';
 
 import {useSelector} from 'react-redux';
 
@@ -10,10 +10,10 @@ const CompletedTodos = () => {
   const completedTodos = todos.filter(todo => todo.isCompleted);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.mainTitle}>Completed</Text>
       <TodosList todos={completedTodos} />
-    </View>
+    </SafeAreaView>
   );
 };
 
